@@ -31,8 +31,10 @@ namespace CarDealership.MVVM.ViewModel
 
             if (email == "Admin" && password == "123")
             {
-                window.Hide();
+                
                 AdminWindow admin = new AdminWindow();
+                Application.Current.MainWindow = admin;
+                window.Close();
                 admin.ShowDialog();
             }
             else MessageBox.Show("Email si/sau parola gresite!", "Avertizare", MessageBoxButton.OK, MessageBoxImage.Warning);
