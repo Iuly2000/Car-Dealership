@@ -25,3 +25,9 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\AdminWindow.baml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Images\Logo.png
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\CarDealership_Content.g.cs
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.xml
