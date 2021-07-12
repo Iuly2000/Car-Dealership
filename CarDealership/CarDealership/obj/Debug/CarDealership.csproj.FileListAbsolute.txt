@@ -20,3 +20,8 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.pdb
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\LoginWindow.g.cs
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\LoginWindow.baml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\AdminWindow.g.cs
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\AdminWindow.baml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Images\Logo.png
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\CarDealership_Content.g.cs
