@@ -1,4 +1,6 @@
 ﻿using CarDealership.Helpers;
+using CarDealership.MVVM.Model.BusinessLogicLayer;
+using CarDealership.MVVM.Model.EntityLayer;
 using CarDealership.MVVM.View;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ namespace CarDealership.MVVM.ViewModel
 {
     class LoginWindowVM
     {
+        LoginBLL loginBLL = new LoginBLL();
+
         private ICommand loginCommand;
         public ICommand LoginCommand
         {
@@ -28,14 +32,22 @@ namespace CarDealership.MVVM.ViewModel
         {
             string email = window.txtemail.Text;
             string password = window.txtpassword.Password;
+            Client client = loginBLL.VerifyLoginClient(email, password);
 
             if (email == "Admin" && password == "123")
             {
                 
-                AdminWindow admin = new AdminWindow();
-                Application.Current.MainWindow = admin;
+                AdminWindow adminWindow = new AdminWindow();
+                Application.Current.MainWindow = adminWindow;
                 window.Close();
-                admin.ShowDialog();
+                adminWindow.ShowDialog();
+            }            
+            else if (client.ClientID != null)
+            {
+                ClientWindow clientWindow = new ClientWindow();
+                Application.Current.MainWindow = clientWindow;
+                window.Close();
+                clientWindow.ShowDialog();
             }
             else MessageBox.Show("Email si/sau parola gresite!", "Avertizare", MessageBoxButton.OK, MessageBoxImage.Warning);
             

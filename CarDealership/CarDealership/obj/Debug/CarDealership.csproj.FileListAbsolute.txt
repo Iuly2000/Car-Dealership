@@ -31,3 +31,5 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.xml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.xml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ClientWindow.g.cs
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ClientWindow.baml
