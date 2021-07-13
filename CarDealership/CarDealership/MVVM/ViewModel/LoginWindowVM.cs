@@ -13,9 +13,7 @@ using System.Windows.Input;
 namespace CarDealership.MVVM.ViewModel
 {
     class LoginWindowVM
-    {
-        LoginBLL loginBLL = new LoginBLL();
-
+    {        
         private ICommand loginCommand;
         public ICommand LoginCommand
         {
@@ -28,10 +26,31 @@ namespace CarDealership.MVVM.ViewModel
                 return loginCommand;
             }
         }
+
+        private ICommand signUpCommand;
+        public ICommand SignUpCommand
+        {
+            get
+            {
+                if (signUpCommand == null)
+                {
+                    signUpCommand = new RelayCommand<object>(o =>
+                    {
+                        SignUpWindow signUpWindow = new SignUpWindow();
+                        Application.Current.MainWindow = signUpWindow;                        
+                        signUpWindow.ShowDialog();
+                    });
+                }
+                return signUpCommand;
+            }
+        }
+
+        
         private void Logging(LoginWindow window)
         {
             string email = window.txtemail.Text;
             string password = window.txtpassword.Password;
+            LoginBLL loginBLL = new LoginBLL();
             Client client = loginBLL.VerifyLoginClient(email, password);
 
             if (email == "Admin" && password == "123")

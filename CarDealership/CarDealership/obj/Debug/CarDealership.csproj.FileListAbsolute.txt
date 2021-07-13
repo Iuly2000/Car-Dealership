@@ -33,3 +33,7 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ClientWindow.g.cs
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ClientWindow.baml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\SignUpWindow.g.cs
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\SignUpWindow.baml
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Images\AplicationLogo.png
+C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Images\SignUpBG.jpg
