@@ -7,6 +7,7 @@
         xmlns:context="clr-namespace:CarDealership.MVVM.ViewModel"
         mc:Ignorable="d"
         x:Name="login"
+        Icon="/CarDealership;component/Images/AplicationLogo.png"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStartupLocation="CenterScreen"
         Title="Login" Height="450" Width="800" WindowStyle="SingleBorderWindow">
@@ -64,10 +65,14 @@
                                      CaretBrush="#FFD94448" 
                                      SelectionBrush="#FFD94448"/>
                     </StackPanel>
-                    <StackPanel Margin="10" HorizontalAlignment="Center" >
+                    <StackPanel  
+                                HorizontalAlignment="Center" 
+                                Orientation="Horizontal">
+                        
+                      
                         <Button Content = "Login" 
-                                Width="100" 
-                                Height="40" 
+                                Width="78" 
+                                Height="35" 
                                 Style="{StaticResource MaterialDesignRaisedButton}" 
                                 materialDesign:ButtonAssist.CornerRadius="10" 
                                 BorderThickness="2" 
@@ -77,6 +82,20 @@
                                 x:Name="btnLogin" 
                                 Command="{Binding LoginCommand, Mode=OneWay}" 
                                 CommandParameter="{Binding ElementName = login}"/>
+                        <Label Content="Already have an account?" Height="24">
+                            
+                        </Label> 
+                        <Button Content = "SignUp" 
+                                Width="78" 
+                                Height="35" 
+                                Style="{StaticResource MaterialDesignRaisedButton}" 
+                                materialDesign:ButtonAssist.CornerRadius="10" 
+                                BorderThickness="2" 
+                                BorderBrush="#D94448" 
+                                Foreground="White" 
+                                ToolTip="SignUp" 
+                                x:Name="btnSignUP" 
+                                Command="{Binding SignUpCommand, Mode=OneWay}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
