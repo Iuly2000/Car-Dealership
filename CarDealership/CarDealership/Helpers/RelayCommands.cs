@@ -11,6 +11,7 @@ namespace CarDealership.Helpers
     {
         private Action<T> commandTask;
         private Predicate<T> canExecuteTask;
+        private object v;
 
         public RelayCommand(Action<T> workToDo, Predicate<T> canExecute = null)
         {
@@ -43,3 +44,4 @@ namespace CarDealership.Helpers
         }
     }
 }
+

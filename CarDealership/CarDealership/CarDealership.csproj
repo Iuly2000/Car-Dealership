@@ -92,15 +92,22 @@
     </Compile>
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\RelayCommands.cs" />
+<<<<<<< Updated upstream
     <Compile Include="MVVM\Model\BusinessLogicLayer\LoginBLL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ClientDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\CreditCardDAL.cs" />
+=======
+    <Compile Include="MVVM\Model\BusinessLogicLayer\CarBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\CarDAL.cs" />
+>>>>>>> Stashed changes
     <Compile Include="MVVM\Model\DataAccessLayer\HelperDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\LoginDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Car.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CarClient.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Client.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CreditCard.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\Vehicle.cs" />
+    <Compile Include="MVVM\ViewModel\AdminWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\SignUpWindowVM.cs" />
     <Compile Include="MVVM\View\AdminWindow.xaml.cs">
