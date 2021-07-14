@@ -1,14 +1,13 @@
 ﻿using CarDealership.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CarDealership.MVVM.Model.EntityLayer
 {
-    class Car:Vehicle, INotifyPropertyChanged
+    class Car:ObservableObject
     {
         private int? carID;
         public int? CarID
@@ -24,7 +23,20 @@ namespace CarDealership.MVVM.Model.EntityLayer
             }
         }
 
-       
+        private string brand;
+        public string Brand
+        {
+            get
+            {
+                return brand;
+            }
+            set
+            {
+                brand = value;
+                NotifyPropertyChanged("Brand");
+            }
+        }
+
         private string model;
         public string Model
         {
@@ -109,11 +121,6 @@ namespace CarDealership.MVVM.Model.EntityLayer
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }
