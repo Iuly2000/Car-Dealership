@@ -31,3 +31,36 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.xml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.xml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Images\Logo.png
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\CarDealership.exe.config
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\CarDealership.exe
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\CarDealership.pdb
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\MaterialDesignColors.dll
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\MaterialDesignColors.pdb
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.csproj.AssemblyReference.cache
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\AdminWindow.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\LoginWindow.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\App.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership_Content.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership_MarkupCompile.cache
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership_MarkupCompile.lref
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\App.baml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\AdminWindow.baml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\LoginWindow.baml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.g.resources
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.Properties.Resources.resources
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.csproj.GenerateResource.cache
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.csproj.CoreCompileInputs.cache
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.csproj.CopyComplete
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.exe
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.pdb

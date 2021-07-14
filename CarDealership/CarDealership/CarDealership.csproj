@@ -87,11 +87,15 @@
     </Compile>
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\RelayCommands.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\CarBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\CarDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\HelperDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Car.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CarClient.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Client.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CreditCard.cs" />
+    <Compile Include="MVVM\Model\EntityLayer\Vehicle.cs" />
+    <Compile Include="MVVM\ViewModel\AdminWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
     <Compile Include="MVVM\View\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -130,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="MVVM\Model\BusinessLogicLayer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Logo.png">
