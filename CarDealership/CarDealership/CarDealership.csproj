@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\ClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,21 +92,36 @@
     </Compile>
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\RelayCommands.cs" />
+    <Compile Include="MVVM\Model\BusinessLogicLayer\LoginBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\ClientDAL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\CreditCardDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\HelperDAL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\LoginDAL.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Car.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CarClient.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Client.cs" />
     <Compile Include="MVVM\Model\EntityLayer\CreditCard.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
+    <Compile Include="MVVM\ViewModel\SignUpWindowVM.cs" />
     <Compile Include="MVVM\View\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ClientWindow.xaml.cs">
+      <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\SignUpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\View\SignUpWindow.xaml.cs">
+      <DependentUpon>SignUpWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -130,10 +150,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="MVVM\Model\BusinessLogicLayer\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\AplicationLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SignUpBG.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
