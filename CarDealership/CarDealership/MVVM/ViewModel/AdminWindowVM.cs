@@ -1,10 +1,13 @@
 ﻿using CarDealership.Helpers;
 using CarDealership.MVVM.Model.BusinessLogicLayer;
 using CarDealership.MVVM.Model.EntityLayer;
+using CarDealership.MVVM.View;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +22,11 @@ namespace CarDealership.MVVM.ViewModel
         public AdminWindowVM()
         {
             Brands = carBLL.GetAllBrands();
+            Cars=carBLL.FillDataGrid();
         }
+
+        
+
         private Car car = new Car();
         public Car Car
         {
@@ -30,6 +37,22 @@ namespace CarDealership.MVVM.ViewModel
                 NotifyPropertyChanged("Car");
             }
         }
+
+        private ObservableCollection<Car> cars;
+        public ObservableCollection<Car> Cars
+        {
+            get
+            {
+                return cars;
+            }
+            set
+            {
+                cars = value;
+                NotifyPropertyChanged("Cars");
+            }
+        }
+
+        
 
         private ObservableCollection<string> brands;
         public ObservableCollection<string> Brands
@@ -67,6 +90,7 @@ namespace CarDealership.MVVM.ViewModel
                 if (addCommand == null)
                 {
                     addCommand = new RelayCommand<object>((_) => carBLL.InsertCar(car));
+
                 }
                 return addCommand;
             }
@@ -83,6 +107,60 @@ namespace CarDealership.MVVM.ViewModel
                 return imageCommand;
             }
         }
+        private ICommand backCommand;
+        public ICommand BackCommand
+        {
+            get
+            {
+                if (backCommand == null)
+                {
+                    backCommand = new RelayCommand<object>((_) => BtnBack_Click());
+                }
+                return backCommand;
+            }
+        }
+        private ICommand refreshCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                if (refreshCommand == null)
+                {
+                    refreshCommand = new RelayCommand<object>((_) => BtnRefresh_Click());
+                }
+                return refreshCommand;
+            }
+        }
+        private ICommand modifyCommand;
+        public ICommand ModifyCommand
+        {
+            get
+            {
+                if (modifyCommand == null)
+                {
+                    modifyCommand = new RelayCommand<Car>(carBLL.ModifyCar);
+                }
+                return modifyCommand;
+            }
+        }
 
+        
+
+        private void BtnRefresh_Click()
+        {
+            AdminWindow admin = new AdminWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = admin;
+            admin.ShowDialog();
+        }
+
+        private void BtnBack_Click()
+        {
+            LoginWindow login = new LoginWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = login;
+            login.ShowDialog();
+            
+        }
     }
 }

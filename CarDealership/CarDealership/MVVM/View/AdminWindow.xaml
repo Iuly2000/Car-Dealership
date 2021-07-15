@@ -22,11 +22,6 @@
                 <GradientStop Color="#FF29ACF0" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-
-
-        <StackPanel Margin="0,0,-0.4,37.2">
-            <TextBlock TextWrapping="Wrap" Text="Administrator" Height="44" Margin="250,20,250,0" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script"/>
-        </StackPanel>
         <Grid HorizontalAlignment="Left" Height="335" Margin="10,85,0,0" VerticalAlignment="Top" Width="756" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="34*"/>
@@ -37,7 +32,7 @@
                 <ColumnDefinition Width="127*"/>
             </Grid.ColumnDefinitions>
             <TextBlock HorizontalAlignment="Left" Margin="154,1,0,0" TextWrapping="Wrap" Text="Add Car" Foreground="White" FontSize="20" VerticalAlignment="Top"/>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="159.8,1,0,0" TextWrapping="Wrap" Text="Change price" Foreground="White" FontSize="20" VerticalAlignment="Top"/>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="144.8,1,0,0" TextWrapping="Wrap" Text="Modify Car" Foreground="White" FontSize="20" VerticalAlignment="Top" Width="135"/>
             <Grid HorizontalAlignment="Left" Height="250" Margin="21,43,0,0" VerticalAlignment="Top" Width="336" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
@@ -68,8 +63,23 @@
                 <TextBox Text="{Binding Path=Car.Engine}" HorizontalAlignment="Left" Height="23" Margin="27.6,2,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
                 <Button Content="Choose" HorizontalAlignment="Left" Margin="43.6,5.8,0,0" Grid.Row="6" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.867,0.585" Grid.Column="1" Height="26" Command="{Binding ImageCommand}"/>
             </Grid>
-            <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="57,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="265"/>
+            <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="154,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="168"/>
+            <DataGrid Name="grdCars" AutoGenerateColumns="False" ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="240" Margin="375,43,0,0" VerticalAlignment="Top" Width="381" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Brand" Width="100" Binding="{Binding Brand}"/>
+                    <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
+                    <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Fabrication Year" Width="100" Binding="{Binding FabricationYear}"/>
+                    <DataGridTextColumn Header="Color" Width="100" Binding="{Binding Color}"/>
+                    <DataGridTextColumn Header="Engine" Width="100" Binding="{Binding Engine}"/>
+                    <DataGridTextColumn Header="Image path" Width="100" Binding="{Binding Image}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Modify" Command="{Binding ModifyCommand}" CommandParameter="{Binding ElementName=grdCars, Path=SelectedItem}" HorizontalAlignment="Left" Margin="108.8,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182" Grid.Column="1"/>
         </Grid>
+        <TextBlock TextWrapping="Wrap" Text="Administrator" Margin="300,36,303.6,17.6" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script"/>
+        <Button Content="🔙" Command="{Binding BackCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="41"/>
+        <Button Content="🔄" Command="{Binding RefreshCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="63" Height="41" RenderTransformOrigin="0.549,0.526"/>
 
 
 
