@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:context="clr-namespace:CarDealership.MVVM.ViewModel"
+        xmlns:local="clr-namespace:CarDealership.MVVM.ViewModel"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:validationrules="clr-namespace:CarDealership.Helpers" 
         WindowStartupLocation="CenterScreen"
         Title="Administrator" Height="460" Width="800" WindowStyle="SingleBorderWindow">
     <Window.DataContext>
         <context:AdminWindowVM />
     </Window.DataContext>
+    <Window.Resources>
+        <local:AdminWindowVM x:Key="admin"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="19*"/>
@@ -57,7 +61,15 @@
                 <TextBlock HorizontalAlignment="Left" Margin="53,9,0,0" Grid.Row="6" TextWrapping="Wrap" Foreground="White" FontSize="15" Text="Image" VerticalAlignment="Top" Height="20" Grid.RowSpan="2" Width="49"/>
                 <ComboBox IsEditable="True" ItemsSource="{Binding Brands}" Text="{Binding Car.Brand}" Grid.Column="1" HorizontalAlignment="Left" Margin="27.6,-5,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
                 <TextBox Text="{Binding Car.Model}"  Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="27.6,1.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox Text="{Binding Path=Car.Price}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="27.6,2.2,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox  Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="27.6,2.2,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                    <TextBox.Text>
+                        <Binding Path="Car.Price">
+                            <Binding.ValidationRules>
+                                <validationrules:NumberValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <TextBox Text="{Binding Path=Car.FabricationYear}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="27.6,1.2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox Text="{Binding Path=Car.Color}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="27.6,0.2,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox Text="{Binding Path=Car.Engine}" HorizontalAlignment="Left" Height="23" Margin="27.6,2,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
@@ -80,6 +92,8 @@
         <TextBlock TextWrapping="Wrap" Text="Administrator" Margin="300,36,303.6,17.6" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script"/>
         <Button Content="🔙" Command="{Binding BackCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="41"/>
         <Button Content="🔄" Command="{Binding RefreshCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="63" Height="41" RenderTransformOrigin="0.549,0.526"/>
+        <TextBlock HorizontalAlignment="Left" Margin="498,9,0,0" TextWrapping="Wrap" Text="Account Balance:" Foreground="White" TextAlignment="Center" FontSize="20" VerticalAlignment="Top" Height="24" Width="159"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="657,10,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource admin}, Path=Balance, Mode=TwoWay}" VerticalAlignment="Top" Width="99"/>
 
 
 

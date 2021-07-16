@@ -90,6 +90,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helpers\NumberValidationRule.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\RelayCommands.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\CarBLL.cs" />

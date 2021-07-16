@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CarDealership.MVVM.Model.BusinessLogicLayer
 {
@@ -15,7 +16,21 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         CarDAL carDAL = new CarDAL();
         public void InsertCar(Car car)
         {
-            carDAL.InsertCar(car);
+            try
+            {
+                carDAL.InsertCar(car);
+            }
+            catch
+            {
+                MessageBox.Show("All fields require values!");
+            }
+            //if (car.Brand == "" || car.Model == "" || car.Price == 0 || car.FabricationYear == "" || car.Color == "" || car.Engine == "" || car.Image == null)
+            //{
+            //    //throw new Exception("All fields require values!");
+            //    MessageBox.Show("All fields require values!");
+            //    return;
+            //}
+          
         }
         public ObservableCollection<string> GetAllBrands()
         {
@@ -27,6 +42,7 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         }
         public void ModifyCar(Car car)
         {
+          
             carDAL.ModifyCar(car);
         }
     }

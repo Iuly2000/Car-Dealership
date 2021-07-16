@@ -25,7 +25,20 @@ namespace CarDealership.MVVM.ViewModel
             Cars=carBLL.FillDataGrid();
         }
 
-        
+        private static int balance;
+        public static int Balance
+        {
+            get
+            {
+                return balance;
+            }
+            set
+            {
+                balance = value;
+               
+            }
+        }
+
 
         private Car car = new Car();
         public Car Car
@@ -33,7 +46,7 @@ namespace CarDealership.MVVM.ViewModel
             get { return car; }
             set
             {
-                car = Car;
+                car = Car;               
                 NotifyPropertyChanged("Car");
             }
         }
@@ -89,6 +102,7 @@ namespace CarDealership.MVVM.ViewModel
             {
                 if (addCommand == null)
                 {
+                    
                     addCommand = new RelayCommand<object>((_) => carBLL.InsertCar(car));
 
                 }
