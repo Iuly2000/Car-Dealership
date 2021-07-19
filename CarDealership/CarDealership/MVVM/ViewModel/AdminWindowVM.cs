@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace CarDealership.MVVM.ViewModel
 {
     class AdminWindowVM : ObservableObject
     {
-        public CarBLL carBLL = new CarBLL();
+        private CarBLL carBLL = new CarBLL();
         public AdminWindowVM()
         {
             Brands = carBLL.GetAllBrands();
@@ -90,9 +91,10 @@ namespace CarDealership.MVVM.ViewModel
             fileDialog.FilterIndex = 2;
             fileDialog.RestoreDirectory = true;
             dynamic result = fileDialog.ShowDialog();
+
             if (result == true)
             {
-                car.Image = fileDialog.FileName;
+                car.Image = fileDialog.SafeFileName;
             }
         }
         private ICommand addCommand;

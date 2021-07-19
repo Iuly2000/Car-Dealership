@@ -106,6 +106,7 @@
     <Compile Include="MVVM\Model\EntityLayer\CreditCard.cs" />
     <Compile Include="MVVM\Model\EntityLayer\Vehicle.cs" />
     <Compile Include="MVVM\ViewModel\AdminWindowVM.cs" />
+    <Compile Include="MVVM\ViewModel\ClientWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\SignUpWindowVM.cs" />
     <Compile Include="MVVM\View\AdminWindow.xaml.cs">
