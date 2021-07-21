@@ -35,7 +35,7 @@
                             <Style TargetType="DataGridCell">
                                 <Setter Property="ToolTip">
                                     <Setter.Value>
-                                        <Image Source="/CarDealership;component/Images/{Binding Path=Image}"/>
+                                        <Image Source="{Binding Path=Image}"/>
                                      </Setter.Value>
                                 </Setter>
                             </Style>
