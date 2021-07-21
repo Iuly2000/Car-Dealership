@@ -60,10 +60,10 @@ namespace CarDealership.MVVM.ViewModel
         }
         private void BtnRefresh_Click()
         {
-            AdminWindow admin = new AdminWindow();
+            ClientWindow client = new ClientWindow();
             Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = admin;
-            admin.ShowDialog();
+            Application.Current.MainWindow = client;
+            client.ShowDialog();
         }
 
         private void BtnBack_Click()

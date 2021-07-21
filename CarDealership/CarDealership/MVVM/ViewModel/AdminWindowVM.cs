@@ -94,7 +94,7 @@ namespace CarDealership.MVVM.ViewModel
 
             if (result == true)
             {
-                car.Image = fileDialog.SafeFileName;
+                car.Image = fileDialog.FileName;
             }
         }
         private ICommand addCommand;
@@ -160,7 +160,7 @@ namespace CarDealership.MVVM.ViewModel
             }
         }
 
-        
+       
 
         private void BtnRefresh_Click()
         {
@@ -168,6 +168,7 @@ namespace CarDealership.MVVM.ViewModel
             Application.Current.MainWindow.Close();
             Application.Current.MainWindow = admin;
             admin.ShowDialog();
+
         }
 
         private void BtnBack_Click()
