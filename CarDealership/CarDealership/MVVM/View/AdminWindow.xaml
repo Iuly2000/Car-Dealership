@@ -33,7 +33,8 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="125*"/>
-                <ColumnDefinition Width="127*"/>
+                <ColumnDefinition Width="112*"/>
+                <ColumnDefinition Width="15*"/>
             </Grid.ColumnDefinitions>
             <TextBlock HorizontalAlignment="Left" Margin="154,1,0,0" TextWrapping="Wrap" Text="Add Car" Foreground="White" FontSize="20" VerticalAlignment="Top"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="144.8,1,0,0" TextWrapping="Wrap" Text="Modify Car" Foreground="White" FontSize="20" VerticalAlignment="Top" Width="135"/>
@@ -75,8 +76,8 @@
                 <TextBox Text="{Binding Path=Car.Engine}" HorizontalAlignment="Left" Height="23" Margin="27.6,2,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
                 <Button Content="Choose" HorizontalAlignment="Left" Margin="43.6,5.8,0,0" Grid.Row="6" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.867,0.585" Grid.Column="1" Height="26" Command="{Binding ImageCommand}"/>
             </Grid>
-            <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="154,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="168"/>
-            <DataGrid Name="grdCars" AutoGenerateColumns="False" ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="240" Margin="375,43,0,0" VerticalAlignment="Top" Width="381" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="219,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="156"/>
+            <DataGrid Name="grdCars" AutoGenerateColumns="False" ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="240" Margin="375,43,0,0" VerticalAlignment="Top" Width="381" Grid.RowSpan="2" Grid.ColumnSpan="3">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Brand" Width="100" Binding="{Binding Brand}"/>
                     <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
@@ -89,11 +90,14 @@
             </DataGrid>
             <Button Content="Modify" Command="{Binding ModifyCommand}" CommandParameter="{Binding ElementName=grdCars, Path=SelectedItem}" HorizontalAlignment="Left" Margin="108.8,254.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182" Grid.Column="1"/>
         </Grid>
-        <TextBlock TextWrapping="Wrap" Text="Administrator" Margin="300,36,303.6,17.6" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script"/>
+        <TextBlock TextWrapping="Wrap" Text="Administrator" Margin="298,7,305.6,46.6" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script"/>
         <Button Content="🔙" Command="{Binding BackCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="41"/>
         <Button Content="🔄" Command="{Binding RefreshCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="63" Height="41" RenderTransformOrigin="0.549,0.526"/>
-        <TextBlock HorizontalAlignment="Left" Margin="498,9,0,0" TextWrapping="Wrap" Text="Account Balance:" Foreground="White" TextAlignment="Center" FontSize="20" VerticalAlignment="Top" Height="24" Width="159"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="657,10,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource admin}, Path=Balance, Mode=TwoWay}" VerticalAlignment="Top" Width="99"/>
+        <TextBlock HorizontalAlignment="Left" Margin="522,17,0,0" TextWrapping="Wrap" Text="Account Balance:" Foreground="White" TextAlignment="Center" FontSize="20" VerticalAlignment="Top" Height="24" Width="159"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="686,18,0,0" TextWrapping="Wrap" Text="{Binding Balance}" VerticalAlignment="Top" Width="99"/>
+        <TextBlock HorizontalAlignment="Left" Margin="522,46,0,0" TextWrapping="Wrap" Text="Add Money" Foreground="White" TextAlignment="Center" FontSize="15" VerticalAlignment="Top" Height="25" Width="85"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="612,41,0,0" TextWrapping="Wrap" Text="{Binding Money}" VerticalAlignment="Top" Width="69"/>
+        <Button Content="Add" Command="{Binding AddMoneyCommand}" HorizontalAlignment="Left" Margin="686,47,0,0" VerticalAlignment="Top" Width="80" Height="19" FontSize="10"/>
 
 
 

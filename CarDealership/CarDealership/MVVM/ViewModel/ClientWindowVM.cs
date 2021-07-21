@@ -19,6 +19,7 @@ namespace CarDealership.MVVM.ViewModel
         public ClientWindowVM()
         {
             Cars = carBLL.FillDataGrid();
+
         }
 
         private ObservableCollection<Car> cars;

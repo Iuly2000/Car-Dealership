@@ -24,10 +24,11 @@ namespace CarDealership.MVVM.ViewModel
         {
             Brands = carBLL.GetAllBrands();
             Cars=carBLL.FillDataGrid();
+            Balance = ReadFile();
         }
 
-        private static int balance;
-        public static int Balance
+        private string balance;
+        public string Balance
         {
             get
             {
@@ -36,17 +37,48 @@ namespace CarDealership.MVVM.ViewModel
             set
             {
                 balance = value;
-               
+                NotifyPropertyChanged("Balance");
             }
         }
 
+        private string money;
+        public string Money
+        {
+            get
+            {
+                return money;
+            }
+            set
+            {
+                money = value;
+                NotifyPropertyChanged("Money");
+            }
+        }
 
+        private string ReadFile()
+        {
+            return System.IO.File.ReadAllText(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt");
+        }
+        
         private Car car = new Car();
         public Car Car
         {
             get { return car; }
             set
             {
+                //    if (car.Price <= int.Parse(Balance))
+                //    {
+
+                //        using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
+                //        {
+                //            writer.WriteLine((int.Parse(Balance) - car.Price).ToString());
+                //        }
+                //    }
+                //    else
+                //        {
+                //            MessageBox.Show("Car price must be less than or equal to account balance!");
+                //        }
+
                 car = Car;               
                 NotifyPropertyChanged("Car");
             }
@@ -97,17 +129,50 @@ namespace CarDealership.MVVM.ViewModel
                 car.Image = fileDialog.FileName;
             }
         }
+        private ICommand addMoneyCommand;
+        public ICommand AddMoneyCommand
+        {
+            get
+            {
+                if (addMoneyCommand == null)
+                {
+
+                    addMoneyCommand = new RelayCommand<object>((_) => AddMoney());
+
+                }
+                return addMoneyCommand;
+            }
+        }
+
+        private void AddMoney()
+        {
+            if (Balance != "")
+            {
+                Money = (int.Parse(Money) + int.Parse(Balance)).ToString();
+            }
+            else
+            {
+                Money = (int.Parse(Money)).ToString();
+            }
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
+            {
+                writer.WriteLine(Money);
+            }
+        }
+
         private ICommand addCommand;
         public ICommand AddCommand
         {
             get
             {
-                if (addCommand == null)
-                {
-                    
-                    addCommand = new RelayCommand<object>((_) => carBLL.InsertCar(car));
-
-                }
+                
+             if (addCommand == null)
+             {
+            
+                 addCommand = new RelayCommand<object>((_) => carBLL.InsertCar(car));
+             }
+                   
+                
                 return addCommand;
             }
         }
