@@ -37,7 +37,8 @@ namespace CarDealership.MVVM.ViewModel
                     signUpCommand = new RelayCommand<object>(o =>
                     {
                         SignUpWindow signUpWindow = new SignUpWindow();
-                        Application.Current.MainWindow = signUpWindow;                        
+                        Application.Current.MainWindow = signUpWindow;  
+                        
                         signUpWindow.ShowDialog();
                     });
                 }
@@ -50,7 +51,7 @@ namespace CarDealership.MVVM.ViewModel
         {
             string email = window.txtemail.Text;
             string password = window.txtpassword.Password;
-            LoginBLL loginBLL = new LoginBLL();
+            LoginBLL loginBLL = new LoginBLL();            
             Client client = loginBLL.VerifyLoginClient(email, password);
 
             if (email == "Admin" && password == "123")
@@ -65,6 +66,9 @@ namespace CarDealership.MVVM.ViewModel
             {
                 ClientWindow clientWindow = new ClientWindow();
                 Application.Current.MainWindow = clientWindow;
+                ClientWindowVM clientWindowContext = (clientWindow.DataContext as ClientWindowVM);
+                clientWindowContext.Client = client;
+                clientWindowContext.CreditCard = loginBLL.GetCreditCard(client.CreditCardID);
                 window.Close();
                 clientWindow.ShowDialog();
             }

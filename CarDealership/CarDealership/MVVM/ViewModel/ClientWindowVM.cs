@@ -22,6 +22,34 @@ namespace CarDealership.MVVM.ViewModel
 
         }
 
+        private Client client;
+        public Client Client
+        {
+            get
+            {
+                return client;
+            }
+            set
+            {
+                client = value;
+                NotifyPropertyChanged("Client");
+            }
+        }
+
+        private CreditCard creditCard;
+        public CreditCard CreditCard
+        {
+            get
+            {
+                return creditCard;
+            }
+            set
+            {
+                creditCard = value;
+                NotifyPropertyChanged("CreditCard");
+            }
+        }
+
         private ObservableCollection<Car> cars;
         public ObservableCollection<Car> Cars
         {

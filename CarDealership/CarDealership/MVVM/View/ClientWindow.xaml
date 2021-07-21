@@ -16,33 +16,129 @@
                 <GradientStop Color="#FF29ACF0" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Foreground="White" FontSize="20" Margin="309,23,0,0" TextWrapping="Wrap" Text="Client" VerticalAlignment="Top" Height="35" Width="171"/>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="2">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="35,0,50,0" Width="179">
+                <TextBlock                                           
+                       TextWrapping="Wrap" 
+                       Text="Client Name:" 
+                       Foreground="White" 
+                       TextAlignment="Center" 
+                       FontSize="15" 
+                       VerticalAlignment="Top" 
+                       Height="24" />
+                <TextBlock 
+                       TextWrapping="Wrap" 
+                       Text="{Binding Client.Name}" 
+                       Foreground="White" 
+                       TextAlignment="Left" 
+                       FontSize="15" 
+                       VerticalAlignment="Top" 
+                       Height="24"
+                        Width="80"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock                       
+                                              
+                       TextWrapping="Wrap" 
+                       Text="Account Balance:" 
+                       Foreground="White" 
+                       TextAlignment="Center" 
+                       FontSize="15" 
+                       VerticalAlignment="Top" 
+                       Height="24"/>
+
+                    <TextBlock 
+                       TextWrapping="Wrap" 
+                       Text="{Binding CreditCard.Balance}" 
+                       Foreground="White" 
+                       TextAlignment="Left" 
+                       FontSize="15" 
+                       VerticalAlignment="Top" 
+                       Height="24"
+                        Width="80"/>
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock                                   
+                   Foreground="White"                   
+                   VerticalAlignment="Top"
+                   
+                   Text="Welcome to our DealerShip!" 
+                   FontFamily="Freestyle Script"    
+                   HorizontalAlignment="Left"
+                   FontSize="35"
+                   Height="35">
+                </TextBlock>
+            </StackPanel>
+            
+            
+        </Grid>
+        
         <Grid HorizontalAlignment="Left" Height="321" Margin="32,63,0,0" VerticalAlignment="Top" Width="729">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="364*"/>
                 <ColumnDefinition Width="365*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="grdCars" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="301" Margin="0,10,-0.2,0" VerticalAlignment="Top" Width="365" Grid.Column="1">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Brand" Width="100" Binding="{Binding Brand}"/>
-                    <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}"/>
-                    <DataGridTextColumn Header="Fabrication Year" Width="100" Binding="{Binding FabricationYear}"/>
-                    <DataGridTextColumn Header="Color" Width="100" Binding="{Binding Color}"/>
-                    <DataGridTextColumn Header="Engine" Width="100" Binding="{Binding Engine}"/>
-                    <DataGridTextColumn Header="Image" Width="100" Binding="{Binding Path=Image}">
-                        <DataGridTextColumn.CellStyle>
-                            <Style TargetType="DataGridCell">
-                                <Setter Property="ToolTip">
-                                    <Setter.Value>
-                                        <Image Source="{Binding Path=Image}"/>
-                                     </Setter.Value>
-                                </Setter>
-                            </Style>
+            <StackPanel Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+
+                    <Button Content="Profile" x:Name="profileBtn"/>
+                    <Button Content="Card Info" x:Name="creditCardBtn"/>
+                    <Button Content="Buy Car" x:Name="buyBtn"/>
+                    <Button Content="Loan Car" x:Name="loanBtn"/>
+                    <CheckBox x:Name="loanCheck"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            Visibility="{Binding ElementName=loanCheck, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                    <Label Content="Starting date:" FontSize="18" Foreground="WhiteSmoke"/>
+                    <DatePicker x:Name="startDate"/>
+                    <Label Content="Ending date:" FontSize="18" Foreground="WhiteSmoke"/>
+                    <DatePicker x:Name="endDate"/>
+                </StackPanel>
+                <Button Content="History" x:Name="historyBtn" />
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+
+                <DockPanel >
+                    <TextBlock Text="Cars for sale/loan:"
+               Background="#FF29ACF0"
+               Foreground="White"
+               FontSize="20"               
+               FontWeight="SemiBold"
+               TextAlignment="Center"
+               DockPanel.Dock="Top" />
+                </DockPanel>
+                <DataGrid  x:Name="grdCars" Background="#FF4750F1" Foreground="#FF021D4D" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Cars}" Height="290" Width="360">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Brand"  Width="100" Binding="{Binding Brand}"/>
+                        <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
+                        <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Fabrication Year" Width="100" Binding="{Binding FabricationYear}"/>
+                        <DataGridTextColumn Header="Color" Width="100" Binding="{Binding Color}"/>
+                        <DataGridTextColumn Header="Engine" Width="100" Binding="{Binding Engine}"/>
+                        <DataGridTextColumn Header="Image" Width="100" Binding="{Binding Path=Image}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip">
+                                        <Setter.Value>
+                                            <Image Source="{Binding Path=Image}"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
                             </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
         </Grid>
         <Button Content="🔙" Command="{Binding BackCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="41"/>
         <Button Content="🔄" Command="{Binding RefreshCommand}" FontSize="25" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="68,0,0,0" VerticalAlignment="Top" Width="63" Height="41" RenderTransformOrigin="0.549,0.526"/>

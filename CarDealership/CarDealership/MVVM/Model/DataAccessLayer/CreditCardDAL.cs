@@ -30,6 +30,33 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
             }
         }
 
+        public CreditCard GetCreditCard(int? creditCardID)
+        {
+            using (SqlConnection con = HelperDAL.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("GetCreditCard", con);                
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramCreditID = new SqlParameter("@credit_card_id", creditCardID);
+                cmd.Parameters.Add(paramCreditID);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                CreditCard result = new CreditCard();
+                if (reader.Read())
+                {
+                    CreditCard creditCard = new CreditCard()
+                    {
+                        CreditCardID = (int?)reader[0],
+                        Brand = reader.GetString(1),
+                        Country = reader.GetString(2),
+                        Bank = reader.GetString(3),
+                        Balance = (int)reader[4]
+                    };
+                    result = creditCard;
+                }
+                return result;
+            }
+        }
         public int GetTheLastCreditCard()
         {
             using (SqlConnection con = HelperDAL.Connection)

@@ -128,6 +128,10 @@ namespace CarDealership.MVVM.ViewModel
             {
                 car.Image = fileDialog.FileName;
             }
+
+
+
+
         }
         private ICommand addMoneyCommand;
         public ICommand AddMoneyCommand
