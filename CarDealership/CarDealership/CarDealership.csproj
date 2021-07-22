@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\CreditCardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\HistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +115,7 @@
     <Compile Include="MVVM\Model\EntityLayer\Vehicle.cs" />
     <Compile Include="MVVM\ViewModel\AdminWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\ClientWindowVM.cs" />
+    <Compile Include="MVVM\ViewModel\CreditCardWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\HistoryWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\ProfileWindowVM.cs" />
@@ -120,6 +125,9 @@
     </Compile>
     <Compile Include="MVVM\View\ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\CreditCardWindow.xaml.cs">
+      <DependentUpon>CreditCardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>

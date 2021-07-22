@@ -43,8 +43,8 @@ namespace CarDealership.MVVM.ViewModel
                     MessageBox.Show("Balance needs to be an integer!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                long phoneNumber;
-                if (long.TryParse(window.phoneNumber.Text, out phoneNumber) == false||
+                int phoneNumber;
+                if (int.TryParse(window.phoneNumber.Text, out phoneNumber) == false||
                     window.phoneNumber.Text.StartsWith("00")|| window.phoneNumber.Text.Length!=10)
                 {
                     MessageBox.Show("Phone numbers needs to be a valid number!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);

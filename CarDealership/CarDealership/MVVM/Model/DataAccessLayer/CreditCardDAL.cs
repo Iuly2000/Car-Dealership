@@ -74,5 +74,26 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 return 0;
             }
         }
+
+        public void ModifyCreditCard(CreditCard creditCard)
+        {
+            using (SqlConnection con = HelperDAL.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("ModifyCreditCard", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@credit_Card_id", creditCard.CreditCardID);
+                SqlParameter paramBrand = new SqlParameter("@brand", creditCard.Brand);
+                SqlParameter paramCountry = new SqlParameter("@country", creditCard.Country);
+                SqlParameter paramBank = new SqlParameter("@bank", creditCard.Bank);
+                SqlParameter paramBalance = new SqlParameter("@balance", creditCard.Balance);
+                cmd.Parameters.Add(paramId);
+                cmd.Parameters.Add(paramBrand);
+                cmd.Parameters.Add(paramCountry);
+                cmd.Parameters.Add(paramBank);
+                cmd.Parameters.Add(paramBalance);                
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

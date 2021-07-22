@@ -11,10 +11,16 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
     class ClientWindowBLL
     {
         ClientDAL clientDAL = new ClientDAL();
+        CreditCardDAL creditCardDAL = new CreditCardDAL();
 
         public void ModifyClient(Client client)
         {
             clientDAL.ModifyClient(client);
+        }
+
+        public void ModifyCreditCard(CreditCard creditCard)
+        {
+            creditCardDAL.ModifyCreditCard(creditCard);
         }
     }
 }

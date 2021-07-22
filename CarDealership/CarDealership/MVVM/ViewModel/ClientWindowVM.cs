@@ -77,6 +77,20 @@ namespace CarDealership.MVVM.ViewModel
                 return profileCommand;
             }
         }
+
+        private ICommand creditCardCommand;
+        public ICommand CreditCardCommand
+        {
+            get
+            {
+                if (creditCardCommand == null)
+                {
+                    creditCardCommand = new RelayCommand<object>((_) => BtnCreditCard_Click());
+
+                }
+                return creditCardCommand;
+            }
+        }
         private ICommand backCommand;
         public ICommand BackCommand
         {
@@ -105,15 +119,26 @@ namespace CarDealership.MVVM.ViewModel
 
         private void BtnProfile_Click()
         {
-            ProfileWindow profile = new ProfileWindow();            
-            (profile.DataContext as ProfileWindowVM).Client = client;
-            profile.ShowDialog();
+            ProfileWindow profileWindow = new ProfileWindow();            
+            (profileWindow.DataContext as ProfileWindowVM).Client = client;
+            profileWindow.ShowDialog();
+        }
+
+        private void BtnCreditCard_Click()
+        {
+            CreditCardWindow creditCardWindow = new CreditCardWindow();
+            (creditCardWindow.DataContext as CreditCardWindowVM).CreditCard = creditCard;
+            creditCardWindow.ShowDialog();
         }
         private void BtnRefresh_Click()
         {
             ClientWindow clientWindow = new ClientWindow();
+            ClientWindowVM currentWindowDataContext = (Application.Current.MainWindow.DataContext as ClientWindowVM);         
+            ClientWindowVM clientWindowDataContext = (clientWindow.DataContext as ClientWindowVM);
+            clientWindowDataContext.Client = currentWindowDataContext.client;
+            clientWindowDataContext.CreditCard = currentWindowDataContext.creditCard;
             Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = clientWindow;
+            Application.Current.MainWindow = clientWindow;            
             clientWindow.ShowDialog();
         }
 

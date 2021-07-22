@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="/CarDealership;component/Images/AplicationLogo.png"
-        Title="ClientWindow" Height="450" Width="800">
+        Title="Client" Height="450" Width="800">
     <Window.DataContext>
         <context:ClientWindowVM />
     </Window.DataContext>
@@ -92,7 +92,7 @@
                 <StackPanel Orientation="Horizontal">
 
                     <Button Content="Profile" x:Name="profileBtn" Command="{Binding ProfileCommand}"/>
-                    <Button Content="Card Info" x:Name="creditCardBtn"/>
+                    <Button Content="Card Info" x:Name="creditCardBtn" Command="{Binding CreditCardCommand}"/>
                     <Button Content="Buy Car" x:Name="buyBtn"/>
                     <Button Content="Loan Car" x:Name="loanBtn"/>
                     <CheckBox x:Name="loanCheck"/>

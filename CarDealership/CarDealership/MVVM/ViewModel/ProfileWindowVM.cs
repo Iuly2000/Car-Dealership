@@ -39,9 +39,25 @@ namespace CarDealership.MVVM.ViewModel
                 }
                 return modifyCommand;
             }
-        }      
+        }
         private void ModifyClient(ProfileWindow window)
         {
+            if (window.name.Text.Trim(' ') == "" ||
+                ((bool)window.checkPass.IsChecked && window.password.Password.Trim(' ') == "") ||
+                 window.email.Text == "" || window.phoneNumber.Text == "")
+            {
+                MessageBox.Show("Not all fields have been filled in!", "Avertizare", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            int phoneNumber;
+            if (int.TryParse(window.phoneNumber.Text, out phoneNumber) == false ||
+                window.phoneNumber.Text.StartsWith("00") || window.phoneNumber.Text.Length != 10)
+            {
+                MessageBox.Show("Phone numbers needs to be a valid number!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             client.Name = window.name.Text;
             if ((bool)window.checkPass.IsChecked)
                 client.Password = window.password.Password;
