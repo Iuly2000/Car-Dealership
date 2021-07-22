@@ -153,9 +153,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\AplicationLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

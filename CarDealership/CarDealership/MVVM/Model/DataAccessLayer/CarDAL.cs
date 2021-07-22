@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CarDealership.MVVM.Model.DataAccessLayer
 {
@@ -112,6 +113,48 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 cmd.Parameters.Add(paramImage);
                 con.Open();
                 cmd.ExecuteNonQuery();
+            }
+        }
+        public int VerifyCarInCarClient(Car car)
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("VerifyCarInCarClient", con);
+                int result=-1;
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlParameter paramId = new SqlParameter("@id", car.CarID);
+                cmd.Parameters.Add(paramId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {                   
+                    result = (int)reader[0];                  
+                }
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DeleteCar(Car car)
+        {
+            if (VerifyCarInCarClient(car) == -1)
+            {
+                using (SqlConnection con = HelperDAL.Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("DeleteCar", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter paramId = new SqlParameter("@id", car.CarID);
+                    cmd.Parameters.Add(paramId);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Car was bought or loaned!");
             }
         }
     }

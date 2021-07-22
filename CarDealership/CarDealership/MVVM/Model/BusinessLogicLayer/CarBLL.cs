@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,19 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         CarDAL carDAL = new CarDAL();
         public void InsertCar(Car car)
         {
+            string Balance = System.IO.File.ReadAllText(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt");
+            if (car.Price <= int.Parse(Balance))
+            {
+                using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
+                {
+                    writer.WriteLine((int.Parse(Balance) - car.Price).ToString());
+                }
+            }            
+            else
+            {
+                MessageBox.Show("Car price must be less than or equal to account balance!");
+            }
+            
             try
             {
                 carDAL.InsertCar(car);
@@ -44,6 +58,11 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         {
           
             carDAL.ModifyCar(car);
+        }
+        public void DeleteCar(Car car)
+        {
+
+            carDAL.DeleteCar(car);
         }
     }
 }

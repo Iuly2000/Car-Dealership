@@ -66,19 +66,7 @@ namespace CarDealership.MVVM.ViewModel
             get { return car; }
             set
             {
-                //    if (car.Price <= int.Parse(Balance))
-                //    {
-
-                //        using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
-                //        {
-                //            writer.WriteLine((int.Parse(Balance) - car.Price).ToString());
-                //        }
-                //    }
-                //    else
-                //        {
-                //            MessageBox.Show("Car price must be less than or equal to account balance!");
-                //        }
-
+                
                 car = Car;               
                 NotifyPropertyChanged("Car");
             }
@@ -128,10 +116,6 @@ namespace CarDealership.MVVM.ViewModel
             {
                 car.Image = fileDialog.FileName;
             }
-
-
-
-
         }
         private ICommand addMoneyCommand;
         public ICommand AddMoneyCommand
@@ -228,8 +212,19 @@ namespace CarDealership.MVVM.ViewModel
                 return modifyCommand;
             }
         }
+        private ICommand deleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (deleteCommand == null)
+                {
+                    deleteCommand = new RelayCommand<Car>(carBLL.DeleteCar);
+                }
+                return deleteCommand;
+            }
+        }
 
-       
 
         private void BtnRefresh_Click()
         {
