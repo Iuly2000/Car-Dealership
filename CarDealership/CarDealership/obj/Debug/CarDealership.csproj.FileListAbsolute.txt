@@ -82,3 +82,5 @@ C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\De
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\HistoryWindow.baml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ProfileWindow.g.cs
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ProfileWindow.baml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ProfileWindow.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ProfileWindow.baml
