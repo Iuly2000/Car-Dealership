@@ -36,7 +36,7 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20" />
-            <TextBox x:Name="name" Text="{Binding Client.Name}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+            <TextBox x:Name="name" Text="{Binding Client.Name,Mode=OneWay}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
 
 
         </StackPanel>
@@ -47,7 +47,7 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20"/>
-            <TextBox x:Name="email" Text="{Binding Client.Email}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+            <TextBox x:Name="email" Text="{Binding Client.Email,Mode=OneWay}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
@@ -78,7 +78,7 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20"/>
-            <TextBox x:Name="phoneNumber" Text="{Binding Client.PhoneNumber}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+            <TextBox x:Name="phoneNumber" Text="{Binding Client.PhoneNumber,Mode=OneWay}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
         </StackPanel>       
         <Button                
                                 Grid.Row="4"
