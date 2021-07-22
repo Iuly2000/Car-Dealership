@@ -72,6 +72,7 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 while (reader.Read())
                 {
                     Car car = new Car();
+
                     car.CarID = (int)reader[0];
                     car.Brand = reader.GetString(1);
                     car.Model = reader.GetString(2);
@@ -80,7 +81,8 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                     car.Color = reader.GetString(5);
                     car.Engine = reader.GetString(6);
                     car.Image = reader.GetString(7);
-                    result.Add(car);
+                    if (VerifyCarInCarClient(car) == -1)
+                        result.Add(car);
                 }
                 return result;
             }
@@ -95,24 +97,31 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
             {
                 SqlCommand cmd = new SqlCommand("ModifyCar", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter paramId = new SqlParameter("@carID", car.CarID);
-                SqlParameter paramBrand= new SqlParameter("@brand", car.Brand);
-                SqlParameter paramModel = new SqlParameter("@model", car.Model);
-                SqlParameter paramPrice = new SqlParameter("@price", car.Price);
-                SqlParameter paramYear  = new SqlParameter("@year", car.FabricationYear);
-                SqlParameter paramColor = new SqlParameter("@color", car.Color);
-                SqlParameter paramEngine = new SqlParameter("@engine", car.Engine);
-                SqlParameter paramImage = new SqlParameter("@image", car.Image);
-                cmd.Parameters.Add(paramId);
-                cmd.Parameters.Add(paramBrand);
-                cmd.Parameters.Add(paramModel);
-                cmd.Parameters.Add(paramPrice);
-                cmd.Parameters.Add(paramYear);
-                cmd.Parameters.Add(paramColor);
-                cmd.Parameters.Add(paramEngine);
-                cmd.Parameters.Add(paramImage);
-                con.Open();
-                cmd.ExecuteNonQuery();
+                if(car!=null)
+                {
+                    SqlParameter paramId = new SqlParameter("@carID", car.CarID);
+                    SqlParameter paramBrand = new SqlParameter("@brand", car.Brand);
+                    SqlParameter paramModel = new SqlParameter("@model", car.Model);
+                    SqlParameter paramPrice = new SqlParameter("@price", car.Price);
+                    SqlParameter paramYear = new SqlParameter("@year", car.FabricationYear);
+                    SqlParameter paramColor = new SqlParameter("@color", car.Color);
+                    SqlParameter paramEngine = new SqlParameter("@engine", car.Engine);
+                    SqlParameter paramImage = new SqlParameter("@image", car.Image);
+                    cmd.Parameters.Add(paramId);
+                    cmd.Parameters.Add(paramBrand);
+                    cmd.Parameters.Add(paramModel);
+                    cmd.Parameters.Add(paramPrice);
+                    cmd.Parameters.Add(paramYear);
+                    cmd.Parameters.Add(paramColor);
+                    cmd.Parameters.Add(paramEngine);
+                    cmd.Parameters.Add(paramImage);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("You have to select a car!");
+                }
             }
         }
         public int VerifyCarInCarClient(Car car)
@@ -120,23 +129,31 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
             SqlConnection con = HelperDAL.Connection;
             try
             {
-                SqlCommand cmd = new SqlCommand("VerifyCarInCarClient", con);
-                int result=-1;
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                SqlParameter paramId = new SqlParameter("@id", car.CarID);
-                cmd.Parameters.Add(paramId);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {                   
-                    result = (int)reader[0];                  
+                if (car != null)
+                {
+                    SqlCommand cmd = new SqlCommand("VerifyCarInCarClient", con);
+                    int result = -1;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    SqlParameter paramId = new SqlParameter("@id", car.CarID);
+                    cmd.Parameters.Add(paramId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result = (int)reader[0];
+                    }
+                    return result;
                 }
-                return result;
+                else
+                {
+                    return -1;
+                }
             }
             finally
             {
                 con.Close();
             }
+           
         }
         public void DeleteCar(Car car)
         {
@@ -144,12 +161,19 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
             {
                 using (SqlConnection con = HelperDAL.Connection)
                 {
-                    SqlCommand cmd = new SqlCommand("DeleteCar", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    SqlParameter paramId = new SqlParameter("@id", car.CarID);
-                    cmd.Parameters.Add(paramId);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
+                    if(car!=null)
+                    {
+                        SqlCommand cmd = new SqlCommand("DeleteCar", con);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlParameter paramId = new SqlParameter("@id", car.CarID);
+                        cmd.Parameters.Add(paramId);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You have to select a car!");
+                    }
                 }
             }
             else

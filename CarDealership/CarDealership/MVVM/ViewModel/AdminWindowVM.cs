@@ -26,7 +26,7 @@ namespace CarDealership.MVVM.ViewModel
             Cars=carBLL.FillDataGrid();
             Balance = ReadFile();
         }
-
+        
         private string balance;
         public string Balance
         {
