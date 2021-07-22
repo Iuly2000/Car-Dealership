@@ -225,6 +225,22 @@ namespace CarDealership.MVVM.ViewModel
             }
         }
 
+        private ICommand historyCommand;
+        public ICommand HistoryCommand
+        {
+            get
+            {
+                if (historyCommand == null)
+                {
+                    historyCommand = new RelayCommand<object>(o =>
+                    {
+                        HistoryWindow historyWindow = new HistoryWindow();
+                        historyWindow.Show();
+                    });
+                }
+                return historyCommand;
+            }
+        }
 
         private void BtnRefresh_Click()
         {

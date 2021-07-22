@@ -76,3 +76,5 @@ C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\D
 C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.csproj.CopyComplete
 C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.exe
 C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\CarDealership.pdb
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\HistoryWindow.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\HistoryWindow.baml

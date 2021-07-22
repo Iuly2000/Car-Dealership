@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\HistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +110,7 @@
     <Compile Include="MVVM\Model\EntityLayer\Vehicle.cs" />
     <Compile Include="MVVM\ViewModel\AdminWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\ClientWindowVM.cs" />
+    <Compile Include="MVVM\ViewModel\HistoryWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\LoginWindowVM.cs" />
     <Compile Include="MVVM\ViewModel\SignUpWindowVM.cs" />
     <Compile Include="MVVM\View\AdminWindow.xaml.cs">
@@ -113,6 +118,9 @@
     </Compile>
     <Compile Include="MVVM\View\ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
