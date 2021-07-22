@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:validationrules="clr-namespace:CarDealership.Helpers" 
         WindowStartupLocation="CenterScreen"
+        Icon="/CarDealership;component/Images/AplicationLogo.png"
         Title="Administrator" Height="460" Width="800" WindowStyle="SingleBorderWindow">
     <Window.DataContext>
         <context:AdminWindowVM />

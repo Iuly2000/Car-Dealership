@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarDealership.MVVM.View" xmlns:context="clr-namespace:CarDealership.MVVM.ViewModel"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="/CarDealership;component/Images/AplicationLogo.png"
         Title="ClientWindow" Height="450" Width="800">
     <Window.DataContext>
         <context:ClientWindowVM />

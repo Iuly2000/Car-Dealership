@@ -82,7 +82,7 @@
                                 x:Name="btnLogin" 
                                 Command="{Binding LoginCommand, Mode=OneWay}" 
                                 CommandParameter="{Binding ElementName = login}"/>
-                        <Label Content="Already have an account?" Height="24">
+                        <Label Content="Don't have an account?" Height="24">
                             
                         </Label> 
                         <Button Content = "SignUp" 

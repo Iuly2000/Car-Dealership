@@ -105,9 +105,7 @@ namespace CarDealership.MVVM.ViewModel
 
         private void BtnProfile_Click()
         {
-            ProfileWindow profile = new ProfileWindow();
-            Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = profile;
+            ProfileWindow profile = new ProfileWindow();            
             (profile.DataContext as ProfileWindowVM).Client = client;
             profile.ShowDialog();
         }

@@ -9,12 +9,13 @@
         mc:Ignorable="d"
         x:Name="profileWindow"
         WindowStartupLocation="CenterScreen"
-        Title="ProfileWindow" Height="400" Width="400">
+        Icon="/CarDealership;component/Images/AplicationLogo.png"
+        Title="ClientProfile" Height="400" Width="400">
 
     <Window.DataContext>
-        <context:ProfileWindowVM/>        
+        <context:ProfileWindowVM/>
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush >
@@ -35,7 +36,7 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20" />
-            <TextBox x:Name="name" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+            <TextBox x:Name="name" Text="{Binding Client.Name}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
 
 
         </StackPanel>
@@ -46,16 +47,18 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20"/>
-            <TextBox x:Name="email" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+            <TextBox x:Name="email" Text="{Binding Client.Email}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <TextBlock Text="Password:" 
+
+            <TextBlock Text="New Password:" 
                                Margin="20" 
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20"/>
-            <PasswordBox x:Name="password"                                       
+            <PasswordBox             x:Name="password"  
+                                     Visibility="{Binding ElementName=checkPass,Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
                                      materialDesign:HintAssist.Hint="********" 
                                      Foreground="Black" 
                                      Width="180" 
@@ -64,6 +67,9 @@
                                      BorderBrush="White" 
                                      CaretBrush="#FFD94448" 
                                      SelectionBrush="#FFD94448"/>
+            <CheckBox x:Name="checkPass">
+
+            </CheckBox>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal">
@@ -72,18 +78,10 @@
                                Foreground="Black" 
                                TextAlignment="Left" 
                                FontSize="20"/>
-            <TextBox x:Name="phoneNumber" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
-        </StackPanel>
-        <Button Grid.Row="4" 
-                Content="🔙" 
-                Command="{Binding BackCommand}" 
-                FontSize="31" 
-                BorderThickness="0"
-                Background="Transparent" 
-                HorizontalAlignment="Left" 
-                Width="75"
-                Height="50"/>
-        <Button                 Grid.Row="4"
+            <TextBox x:Name="phoneNumber" Text="{Binding Client.PhoneNumber}" FontSize="20" BorderBrush="White" Width="180" Height="35" TextAlignment="Left"/>
+        </StackPanel>       
+        <Button                
+                                Grid.Row="4"
                                 Content = "Modify" 
                                 Width="130" 
                                 Height="40" 
@@ -94,8 +92,8 @@
                                 BorderBrush="#FFB83D40" 
                                 Foreground="White" 
                                 HorizontalAlignment="Center"
-                                ToolTip="Create Account" 
-                                x:Name="btnLogin" 
+                                ToolTip="Modify" 
+                                x:Name="btnModify" 
                                 Command="{Binding ModifyCommand, Mode=OneWay}" 
                                 CommandParameter="{Binding ElementName = profileWindow}"/>
     </Grid>
