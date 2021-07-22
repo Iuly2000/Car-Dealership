@@ -17,10 +17,10 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         CarDAL carDAL = new CarDAL();
         public void InsertCar(Car car)
         {
-            string Balance = System.IO.File.ReadAllText(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt");
+            string Balance = System.IO.File.ReadAllText(@"..\..\bin\Debug\Balance.txt");
             if (car.Price <= int.Parse(Balance))
             {
-                using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
+                using (StreamWriter writer = new StreamWriter(@"..\..\bin\Debug\Balance.txt"))
                 {
                     writer.WriteLine((int.Parse(Balance) - car.Price).ToString());
                 }

@@ -63,6 +63,20 @@ namespace CarDealership.MVVM.ViewModel
                 NotifyPropertyChanged("Cars");
             }
         }
+
+        private ICommand profileCommand;
+        public ICommand ProfileCommand
+        {
+            get
+            {
+                if (profileCommand == null)
+                {
+                    profileCommand = new RelayCommand<object>((_) => BtnProfile_Click());
+                
+                }
+                return profileCommand;
+            }
+        }
         private ICommand backCommand;
         public ICommand BackCommand
         {
@@ -75,6 +89,7 @@ namespace CarDealership.MVVM.ViewModel
                 return backCommand;
             }
         }
+
         private ICommand refreshCommand;
         public ICommand RefreshCommand
         {
@@ -87,20 +102,29 @@ namespace CarDealership.MVVM.ViewModel
                 return refreshCommand;
             }
         }
+
+        private void BtnProfile_Click()
+        {
+            ProfileWindow profile = new ProfileWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = profile;
+            (profile.DataContext as ProfileWindowVM).Client = client;
+            profile.ShowDialog();
+        }
         private void BtnRefresh_Click()
         {
-            ClientWindow client = new ClientWindow();
+            ClientWindow clientWindow = new ClientWindow();
             Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = client;
-            client.ShowDialog();
+            Application.Current.MainWindow = clientWindow;
+            clientWindow.ShowDialog();
         }
 
         private void BtnBack_Click()
         {
-            LoginWindow login = new LoginWindow();
+            LoginWindow loginWindow = new LoginWindow();
             Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = login;
-            login.ShowDialog();
+            Application.Current.MainWindow = loginWindow;
+            loginWindow.ShowDialog();
 
         }
     }

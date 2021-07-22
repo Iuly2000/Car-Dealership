@@ -89,7 +89,7 @@
             <StackPanel Grid.Column="0">
                 <StackPanel Orientation="Horizontal">
 
-                    <Button Content="Profile" x:Name="profileBtn"/>
+                    <Button Content="Profile" x:Name="profileBtn" Command="{Binding ProfileCommand}"/>
                     <Button Content="Card Info" x:Name="creditCardBtn"/>
                     <Button Content="Buy Car" x:Name="buyBtn"/>
                     <Button Content="Loan Car" x:Name="loanBtn"/>

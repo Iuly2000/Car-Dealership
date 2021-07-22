@@ -57,7 +57,7 @@ namespace CarDealership.MVVM.ViewModel
 
         private string ReadFile()
         {
-            return System.IO.File.ReadAllText(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt");
+            return System.IO.File.ReadAllText(@"..\..\bin\Debug\Balance.txt");
         }
         
         private Car car = new Car();
@@ -142,7 +142,7 @@ namespace CarDealership.MVVM.ViewModel
             {
                 Money = (int.Parse(Money)).ToString();
             }
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\bin\Debug\Balance.txt"))
+            using (StreamWriter writer = new StreamWriter(@"..\..\bin\Debug\Balance.txt"))
             {
                 writer.WriteLine(Money);
             }
