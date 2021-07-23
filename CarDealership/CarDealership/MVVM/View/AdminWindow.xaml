@@ -100,7 +100,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="522,46,0,0" TextWrapping="Wrap" Text="Add Money" Foreground="White" TextAlignment="Center" FontSize="15" VerticalAlignment="Top" Height="25" Width="85"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="612,41,0,0" TextWrapping="Wrap" Text="{Binding Money}" VerticalAlignment="Top" Width="69"/>
         <Button Content="Add" Command="{Binding AddMoneyCommand}" HorizontalAlignment="Left" Margin="686,47,0,0" VerticalAlignment="Top" Width="80" Height="19" FontSize="10"/>
-        <Button Content="Car History" Command="{Binding HistoryCommand}" Background="Transparent" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="106" Height="31"/>
+        <Button Content="Car History" Command="{Binding HistoryCommand}" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="106" Height="31"/>
 
 
 

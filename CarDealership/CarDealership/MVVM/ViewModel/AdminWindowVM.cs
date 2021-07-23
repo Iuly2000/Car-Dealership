@@ -234,8 +234,11 @@ namespace CarDealership.MVVM.ViewModel
                 {
                     historyCommand = new RelayCommand<object>(o =>
                     {
-                        HistoryWindow historyWindow = new HistoryWindow();
+                        HistoryWindow historyWindow = new HistoryWindow();                               
+                        HistoryWindowVM historyWindowContext = historyWindow.DataContext as HistoryWindowVM;
                         historyWindow.Show();
+                        historyWindowContext.CarsSold = carBLL.GetCarsSold();
+                        historyWindowContext.CarsLoaned = carBLL.GetCarsLoaned();
                     });
                 }
                 return historyCommand;

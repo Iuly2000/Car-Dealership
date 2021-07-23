@@ -64,5 +64,32 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
 
             carDAL.DeleteCar(car);
         }
+        public ObservableCollection<Car> GetCarsSold()
+        {
+            try
+            {
+                return carDAL.GetCarsSold();
+            }
+            catch
+            {
+                throw new ArgumentNullException("There is no car sold!");
+            }
+        }
+        public ObservableCollection<Car> GetCarsLoaned()
+        {
+            try
+            {
+                return carDAL.GetCarsLoaned();
+            }
+            catch
+            {
+                throw new ArgumentNullException("There is no car loaned!");
+            }
+
+        }
+        public List<string> GetDate(Car car)
+        {
+            return carDAL.GetDate(car);
+        }
     }
 }

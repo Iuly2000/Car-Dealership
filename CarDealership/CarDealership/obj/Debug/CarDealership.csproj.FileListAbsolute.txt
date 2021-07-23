@@ -86,3 +86,5 @@ C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\D
 C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\ProfileWindow.baml
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\CreditCardWindow.g.cs
 C:\Users\Iuly\Documents\GitHub\Car-Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\CreditCardWindow.baml
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\CreditCardWindow.g.cs
+C:\Users\presc\OneDrive\Desktop\Car Dealership\CarDealership\CarDealership\obj\Debug\MVVM\View\CreditCardWindow.baml

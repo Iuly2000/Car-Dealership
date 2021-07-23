@@ -3,12 +3,80 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarDealership.MVVM.View"
+        xmlns:local="clr-namespace:CarDealership.MVVM.ViewModel"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Icon="/CarDealership;component/Images/AplicationLogo.png"
         Title="History" Height="450" Width="800">
+
+    <Window.DataContext>
+        <local:HistoryWindowVM></local:HistoryWindowVM>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush >
+                <GradientStop Color="#FF202688" Offset="0"/>
+                <GradientStop Color="#FF29ACF0" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="371" Margin="10,39,0,0" VerticalAlignment="Top" Width="774">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="43*"/>
+                <RowDefinition Height="296*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="386*"/>
+                <ColumnDefinition Width="389*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Center" Foreground="White" TextAlignment="Center" FontSize="25" FontFamily="Freestyle Script" Margin="132,10,147.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="106" Text="Cars Sold"/>
+            <TextBlock HorizontalAlignment="Center" Foreground="White" TextAlignment="Center" FontSize="25" FontFamily="Freestyle Script" Margin="153.4,10,129.4,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="106" Text="Cars Loaned" Grid.Column="1"/>
+            <DataGrid x:Name="grdCars" AutoGenerateColumns="False" ItemsSource="{Binding CarsSold}" IsReadOnly="True" HorizontalAlignment="Left" Height="286" Margin="0,47,0,0" VerticalAlignment="Top" Width="376" Grid.RowSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Brand" Width="100" Binding="{Binding Brand}"/>
+                    <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
+                    <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Fabrication Year" Width="100" Binding="{Binding FabricationYear}"/>
+                    <DataGridTextColumn Header="Color" Width="100" Binding="{Binding Color}"/>
+                    <DataGridTextColumn Header="Engine" Width="100" Binding="{Binding Engine}"/>
+                    <DataGridTextColumn Header="Image path" Width="100" Binding="{Binding Image}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <Image Source="{Binding Path=Image}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="grdCars_Loaned"  SelectedItem="{Binding Car}" AutoGenerateColumns="False" ItemsSource="{Binding CarsLoaned}" IsReadOnly="True" HorizontalAlignment="Left" Height="286" Margin="10.4,0.8,0,0" VerticalAlignment="Top" Width="368" Grid.Column="1" Grid.Row="1">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Brand" Width="100" Binding="{Binding Brand}"/>
+                    <DataGridTextColumn Header="Model" Width="100" Binding="{Binding Model}"/>
+                    <DataGridTextColumn Header="Price" Width="100" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Fabrication Year" Width="100" Binding="{Binding FabricationYear}"/>
+                    <DataGridTextColumn Header="Color" Width="100" Binding="{Binding Color}"/>
+                    <DataGridTextColumn Header="Engine" Width="100" Binding="{Binding Engine}"/>
+                    <DataGridTextColumn Header="Image path" Width="100" Binding="{Binding Image}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip">
+                                    <Setter.Value>
+                                        <Image Source="{Binding Path=Image}"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="See the loan period" Command="{Binding SeeCommand}" HorizontalAlignment="Left" Margin="326,291.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="155" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding StartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Margin="100.4,291.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Height="32"/>
+            <TextBlock Text="{Binding EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Margin="239.4,291.8,0,0.2" Grid.Row="1" TextWrapping="Wrap" Width="139" RenderTransformOrigin="0.944,0.528"/>
+        </Grid>
+        <TextBlock  HorizontalAlignment="Center" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Freestyle Script" Margin="342,-44,319.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="105" Width="132"><Run/><LineBreak/><Run Text="History"/><LineBreak/><Run/></TextBlock>
     </Grid>
 </Window>

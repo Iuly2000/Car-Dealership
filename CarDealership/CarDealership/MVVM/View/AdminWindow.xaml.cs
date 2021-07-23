@@ -23,5 +23,7 @@ namespace CarDealership.MVVM.View
         {
             InitializeComponent();
         }
+
+        
     }
 }

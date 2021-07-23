@@ -180,6 +180,99 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 MessageBox.Show("Car was bought or loaned!");
             }
         }
+        public ObservableCollection<Car> GetCarsSold()
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetCarsSold", con);
+                ObservableCollection<Car> result = new ObservableCollection<Car>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Car car = new Car();
+                    car.CarID = (int)reader[0];
+                    car.Brand = reader.GetString(1);
+                    car.Model = reader.GetString(2);
+                    car.Price = (int)reader[3];
+                    car.FabricationYear = reader.GetString(4);
+                    car.Color = reader.GetString(5);
+                    car.Engine = reader.GetString(6);
+                    car.Image = reader.GetString(7);
+                    result.Add(car);
+                }
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public ObservableCollection<Car> GetCarsLoaned()
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetCarsLoaned", con);
+                ObservableCollection<Car> result = new ObservableCollection<Car>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Car car = new Car();
+                    car.CarID = (int)reader[0];
+                    car.Brand = reader.GetString(1);
+                    car.Model = reader.GetString(2);
+                    car.Price = (int)reader[3];
+                    car.FabricationYear = reader.GetString(4);
+                    car.Color = reader.GetString(5);
+                    car.Engine = reader.GetString(6);
+                    car.Image = reader.GetString(7);
+                    result.Add(car);
+                }
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public List<string> GetDate(Car car)
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                if (car != null)
+                {
+                    SqlCommand cmd = new SqlCommand("GetDate", con);
+                    List<string> result=new List<string>();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    SqlParameter paramId = new SqlParameter("@id", car.CarID);
+                    cmd.Parameters.Add(paramId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result.Add(reader[0].ToString());
+                        result.Add(reader[1].ToString());
+                    }
+                    return result;
+                }
+                else
+                {
+                    MessageBox.Show("You have to select a car!");
+                    var list = new List<string> { "Error", "Error" };
+                    return list;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
 
