@@ -12,7 +12,7 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
     {
         ClientDAL clientDAL = new ClientDAL();
         CreditCardDAL creditCardDAL = new CreditCardDAL();
-
+        CarClientDAL carClientDAL = new CarClientDAL();
         public void ModifyClient(Client client)
         {
             clientDAL.ModifyClient(client);
@@ -21,6 +21,11 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         public void ModifyCreditCard(CreditCard creditCard)
         {
             creditCardDAL.ModifyCreditCard(creditCard);
+        }
+
+        public void InsertCarClient(CarClient carClient)
+        {
+            carClientDAL.InsertCarClient(carClient);
         }
     }
 }

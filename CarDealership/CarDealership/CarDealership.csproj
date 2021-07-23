@@ -104,6 +104,7 @@
     <Compile Include="MVVM\Model\BusinessLogicLayer\CarBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\ClientWindowBLL.cs" />
     <Compile Include="MVVM\Model\BusinessLogicLayer\LoginBLL.cs" />
+    <Compile Include="MVVM\Model\DataAccessLayer\CarClientDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\CarDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\ClientDAL.cs" />
     <Compile Include="MVVM\Model\DataAccessLayer\CreditCardDAL.cs" />

@@ -16,6 +16,7 @@ namespace CarDealership.MVVM.ViewModel
     class ClientWindowVM : ObservableObject
     {
         private CarBLL carBLL = new CarBLL();
+        private ClientWindowBLL clientWindowBLL = new ClientWindowBLL();
         public ClientWindowVM()
         {
             Cars = carBLL.FillDataGrid();
@@ -72,7 +73,7 @@ namespace CarDealership.MVVM.ViewModel
                 if (profileCommand == null)
                 {
                     profileCommand = new RelayCommand<object>((_) => BtnProfile_Click());
-                
+
                 }
                 return profileCommand;
             }
@@ -91,6 +92,35 @@ namespace CarDealership.MVVM.ViewModel
                 return creditCardCommand;
             }
         }
+
+        private ICommand buyCarCommand;
+        public ICommand BuyCarCommand
+        {
+            get
+            {
+                if (buyCarCommand == null)
+                {
+                    buyCarCommand = new RelayCommand<Car>(BtnBuyCar_Click);
+
+                }
+                return buyCarCommand;
+            }
+        }
+
+        private ICommand loanCarCommand;
+        public ICommand LoanCarCommand
+        {
+            get
+            {
+                if (loanCarCommand == null)
+                {
+                    loanCarCommand = new RelayCommand<ClientWindow>(BtnLoanCar_Click);
+
+                }
+                return loanCarCommand;
+            }
+        }
+        
         private ICommand backCommand;
         public ICommand BackCommand
         {
@@ -119,7 +149,7 @@ namespace CarDealership.MVVM.ViewModel
 
         private void BtnProfile_Click()
         {
-            ProfileWindow profileWindow = new ProfileWindow();            
+            ProfileWindow profileWindow = new ProfileWindow();
             (profileWindow.DataContext as ProfileWindowVM).Client = client;
             profileWindow.ShowDialog();
         }
@@ -130,15 +160,63 @@ namespace CarDealership.MVVM.ViewModel
             (creditCardWindow.DataContext as CreditCardWindowVM).CreditCard = creditCard;
             creditCardWindow.ShowDialog();
         }
+
+        private void BtnBuyCar_Click(Car car)
+        {
+            if (car == null)
+            {
+                MessageBox.Show("You have to select a car!");
+                return;
+            }
+
+            CarClient carClient = new CarClient()
+            {
+                ClientID = client.ClientID,
+                CarID = car.CarID,
+                Loaned = false,
+                StartDate = null,
+                EndDate = null
+            };
+
+            clientWindowBLL.InsertCarClient(carClient);
+        }
+
+        private void BtnLoanCar_Click(ClientWindow clientWindow)
+        {
+            Car car = (clientWindow.grdCars.SelectedItem as Car);
+            if (car == null)
+            {
+                MessageBox.Show("You have to select a car!");
+                return;
+            }
+            DateTime? start = clientWindow.startDate.SelectedDate;
+            DateTime? end = clientWindow.endDate.SelectedDate;
+            if(start==null || end==null)
+            {
+                MessageBox.Show("You have to select both the start and end period loan!");
+                return;
+            }
+
+            CarClient carClient = new CarClient()
+            {
+                ClientID = client.ClientID,
+                CarID = car.CarID,
+                Loaned = true,
+                StartDate = start,
+                EndDate = end
+            };
+
+            clientWindowBLL.InsertCarClient(carClient);
+        }
         private void BtnRefresh_Click()
         {
             ClientWindow clientWindow = new ClientWindow();
-            ClientWindowVM currentWindowDataContext = (Application.Current.MainWindow.DataContext as ClientWindowVM);         
+            ClientWindowVM currentWindowDataContext = (Application.Current.MainWindow.DataContext as ClientWindowVM);
             ClientWindowVM clientWindowDataContext = (clientWindow.DataContext as ClientWindowVM);
             clientWindowDataContext.Client = currentWindowDataContext.client;
             clientWindowDataContext.CreditCard = currentWindowDataContext.creditCard;
             Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = clientWindow;            
+            Application.Current.MainWindow = clientWindow;
             clientWindow.ShowDialog();
         }
 
