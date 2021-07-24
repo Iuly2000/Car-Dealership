@@ -108,7 +108,7 @@
                     <Label Content="Ending date:" FontSize="18" Foreground="WhiteSmoke"/>
                     <DatePicker x:Name="endDate" DisplayDateStart="{Binding ElementName=startDate,Path=SelectedDate}"/>
                 </StackPanel>
-                <Button Content="History" x:Name="historyBtn" />
+                <Button Content="History" x:Name="historyBtn" Command="{Binding HistoryCommand}" />
             </StackPanel>
             <StackPanel Grid.Column="1">
 

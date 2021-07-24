@@ -22,7 +22,7 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
             {
                 using (StreamWriter writer = new StreamWriter(@"..\..\bin\Debug\Balance.txt"))
                 {
-                    writer.WriteLine((int.Parse(Balance) - car.Price).ToString());
+                    writer.WriteLine((int.Parse(Balance) - car.Price/2).ToString());
                 }
             }            
             else
@@ -72,7 +72,18 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
             }
             catch
             {
-                throw new ArgumentNullException("There is no car sold!");
+                throw new ArgumentNullException("No cars were sold!");
+            }
+        }
+        public ObservableCollection<Car> GetCarsSoldUser(int? id)
+        {
+            try
+            {
+                return carDAL.GetCarsSoldUser(id);
+            }
+            catch
+            {
+                throw new ArgumentNullException("You haven't bought a car!");
             }
         }
         public ObservableCollection<Car> GetCarsLoaned()
@@ -83,7 +94,19 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
             }
             catch
             {
-                throw new ArgumentNullException("There is no car loaned!");
+                throw new ArgumentNullException("No cars were loaned!");
+            }
+
+        }
+        public ObservableCollection<Car> GetCarsLoanedUser(int? id)
+        {
+            try
+            {
+                return carDAL.GetCarsLoanedUser(id);
+            }
+            catch
+            {
+                throw new ArgumentNullException("You haven't loaned a car!");
             }
 
         }

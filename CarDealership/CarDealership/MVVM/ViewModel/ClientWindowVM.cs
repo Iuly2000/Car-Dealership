@@ -161,6 +161,26 @@ namespace CarDealership.MVVM.ViewModel
             creditCardWindow.ShowDialog();
         }
 
+        private ICommand historyCommand;
+        public ICommand HistoryCommand
+        {
+            get
+            {
+                if (historyCommand == null)
+                {
+                    historyCommand = new RelayCommand<object>(o =>
+                    {
+                        HistoryWindow historyWindow = new HistoryWindow();
+                        HistoryWindowVM historyWindowContext = historyWindow.DataContext as HistoryWindowVM;
+                        historyWindow.Show();
+                        historyWindowContext.CarsSold = carBLL.GetCarsSoldUser(Client.ClientID);
+                        historyWindowContext.CarsLoaned = carBLL.GetCarsLoanedUser(Client.ClientID);
+                    });
+                }
+                return historyCommand;
+            }
+        }
+
         private void BtnBuyCar_Click(Car car)
         {
             if (car == null)

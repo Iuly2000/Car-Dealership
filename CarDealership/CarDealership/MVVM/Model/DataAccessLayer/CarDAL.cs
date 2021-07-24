@@ -210,6 +210,38 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 con.Close();
             }
         }
+        public ObservableCollection<Car> GetCarsSoldUser(int? id)
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetCarsSoldUser", con);
+                ObservableCollection<Car> result = new ObservableCollection<Car>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@id", id);
+                cmd.Parameters.Add(paramId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Car car = new Car();
+                    car.CarID = (int)reader[0];
+                    car.Brand = reader.GetString(1);
+                    car.Model = reader.GetString(2);
+                    car.Price = (int)reader[3];
+                    car.FabricationYear = reader.GetString(4);
+                    car.Color = reader.GetString(5);
+                    car.Engine = reader.GetString(6);
+                    car.Image = reader.GetString(7);
+                    result.Add(car);
+                }
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public ObservableCollection<Car> GetCarsLoaned()
         {
             SqlConnection con = HelperDAL.Connection;
@@ -218,6 +250,38 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 SqlCommand cmd = new SqlCommand("GetCarsLoaned", con);
                 ObservableCollection<Car> result = new ObservableCollection<Car>();
                 cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Car car = new Car();
+                    car.CarID = (int)reader[0];
+                    car.Brand = reader.GetString(1);
+                    car.Model = reader.GetString(2);
+                    car.Price = (int)reader[3];
+                    car.FabricationYear = reader.GetString(4);
+                    car.Color = reader.GetString(5);
+                    car.Engine = reader.GetString(6);
+                    car.Image = reader.GetString(7);
+                    result.Add(car);
+                }
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public ObservableCollection<Car> GetCarsLoanedUser(int? id)
+        {
+            SqlConnection con = HelperDAL.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetCarsLoanedUser", con);
+                ObservableCollection<Car> result = new ObservableCollection<Car>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@id", id);
+                cmd.Parameters.Add(paramId);
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
