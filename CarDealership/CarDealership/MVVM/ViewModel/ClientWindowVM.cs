@@ -5,6 +5,7 @@ using CarDealership.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -197,8 +198,21 @@ namespace CarDealership.MVVM.ViewModel
                 StartDate = null,
                 EndDate = null
             };
-
-            clientWindowBLL.InsertCarClient(carClient);
+            if (car.Price <= CreditCard.Balance)
+                clientWindowBLL.InsertCarClient(carClient);
+            else
+            {
+                MessageBox.Show("You don't have the right amount of money to buy this car!");
+                return;
+            }
+            clientWindowBLL.DecreaseBalance(client.ClientID, car.Price);
+            CreditCard.Balance = clientWindowBLL.GetBalance(client.ClientID);
+            string Balance = System.IO.File.ReadAllText(@"..\..\bin\Debug\Balance.txt");            
+            using (StreamWriter writer = new StreamWriter(@"..\..\bin\Debug\Balance.txt"))
+            {
+                writer.WriteLine((int.Parse(Balance) + car.Price).ToString());
+            }
+            
         }
 
         private void BtnLoanCar_Click(ClientWindow clientWindow)

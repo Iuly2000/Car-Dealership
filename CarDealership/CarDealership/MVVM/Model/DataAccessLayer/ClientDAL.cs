@@ -84,5 +84,39 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 cmd.ExecuteNonQuery();
             }
         }
+        public void DecreaseBalance(int? clientId, int price)
+        {
+            using (SqlConnection con = HelperDAL.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("DecreaseBalance", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@client_id", clientId);
+                SqlParameter paramPrice = new SqlParameter("@price", price);
+                cmd.Parameters.Add(paramId);
+                cmd.Parameters.Add(paramPrice);              
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public int GetBalance(int? clientId)
+        {
+            using (SqlConnection con = HelperDAL.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("GetBalance", con);
+                int result=-1;
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@id", clientId);
+                cmd.Parameters.Add(paramId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    result = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+                return result;
+            }
+        }
     }
 }

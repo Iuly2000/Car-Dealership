@@ -27,5 +27,14 @@ namespace CarDealership.MVVM.Model.BusinessLogicLayer
         {
             carClientDAL.InsertCarClient(carClient);
         }
+        public void DecreaseBalance(int? clientId, int price)
+        {
+            clientDAL.DecreaseBalance(clientId, price);
+        }
+        public int GetBalance(int? clientId)
+        {
+            return clientDAL.GetBalance(clientId);
+        }
+
     }
 }
