@@ -199,7 +199,10 @@ namespace CarDealership.MVVM.ViewModel
                 EndDate = null
             };
             if (car.Price <= CreditCard.Balance)
+            {
                 clientWindowBLL.InsertCarClient(carClient);
+                Cars = carBLL.FillDataGrid();
+            }
             else
             {
                 MessageBox.Show("You don't have the right amount of money to buy this car!");
@@ -231,6 +234,11 @@ namespace CarDealership.MVVM.ViewModel
                 return;
             }
 
+            if(end<start)
+            {
+                MessageBox.Show("The end date can't be before the start date of the loan!");
+                return;
+            }
             CarClient carClient = new CarClient()
             {
                 ClientID = client.ClientID,
@@ -241,6 +249,7 @@ namespace CarDealership.MVVM.ViewModel
             };
 
             clientWindowBLL.InsertCarClient(carClient);
+            Cars = carBLL.FillDataGrid();
         }
         private void BtnRefresh_Click()
         {

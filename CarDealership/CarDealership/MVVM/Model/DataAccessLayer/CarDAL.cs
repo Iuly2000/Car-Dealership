@@ -84,11 +84,14 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                         result.Add(car);
                 }
                 return result;
+              
             }
             finally
             {
                 con.Close();
             }
+           
+
         }
         public void ModifyCar(Car car)
         {
@@ -156,9 +159,10 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
         }
         public void DeleteCar(Car car)
         {
-            if (VerifyCarInCarClient(car) == -1)
+            SqlConnection con = HelperDAL.Connection;
+            try
             {
-                using (SqlConnection con = HelperDAL.Connection)
+                if (VerifyCarInCarClient(car) == -1)
                 {
                     if (car != null)
                     {
@@ -173,11 +177,17 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                     {
                         MessageBox.Show("You have to select a car!");
                     }
+
+                }
+                else
+                {
+                    MessageBox.Show("Car was bought or loaned!");
                 }
             }
-            else
+
+            finally
             {
-                MessageBox.Show("Car was bought or loaned!");
+                con.Close();
             }
         }
         public ObservableCollection<Car> GetCarsSold()
@@ -312,7 +322,7 @@ namespace CarDealership.MVVM.Model.DataAccessLayer
                 if (car != null)
                 {
                     SqlCommand cmd = new SqlCommand("GetDate", con);
-                    List<string> result=new List<string>();
+                    List<string> result = new List<string>();
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     SqlParameter paramId = new SqlParameter("@id", car.CarID);

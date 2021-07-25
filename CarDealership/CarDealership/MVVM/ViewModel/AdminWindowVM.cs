@@ -105,8 +105,7 @@ namespace CarDealership.MVVM.ViewModel
         public void BtnImage_Click()
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = false;
-            fileDialog.InitialDirectory = "c:\\";
+            fileDialog.Multiselect = false;            
             fileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
             fileDialog.FilterIndex = 2;
             fileDialog.RestoreDirectory = true;
@@ -157,7 +156,13 @@ namespace CarDealership.MVVM.ViewModel
              if (addCommand == null)
              {
             
-                 addCommand = new RelayCommand<object>((_) => carBLL.InsertCar(car));
+                 addCommand = new RelayCommand<object>((_) => 
+                 {
+                     carBLL.InsertCar(car);
+                     Brands = carBLL.GetAllBrands();
+                     Cars = carBLL.FillDataGrid();
+                     Balance = ReadFile();
+                 });
              }
                    
                 
@@ -219,7 +224,12 @@ namespace CarDealership.MVVM.ViewModel
             {
                 if (deleteCommand == null)
                 {
-                    deleteCommand = new RelayCommand<Car>(carBLL.DeleteCar);
+                    deleteCommand = new RelayCommand<Car>(o =>
+                    {
+                        carBLL.DeleteCar(o);
+                        Brands = carBLL.GetAllBrands();
+                        Cars = carBLL.FillDataGrid();                        
+                    });
                 }
                 return deleteCommand;
             }

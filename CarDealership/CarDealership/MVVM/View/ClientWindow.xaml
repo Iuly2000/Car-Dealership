@@ -133,8 +133,10 @@
                             <DataGridTextColumn.CellStyle>
                                 <Style TargetType="DataGridCell">
                                     <Setter Property="ToolTip">
-                                        <Setter.Value>
-                                            <Image Source="{Binding Path=Image}"/>
+                                        <Setter.Value>                                            
+                                            <ToolTip Width="200" Height="200" Background="Transparent">
+                                                <Image Source="{Binding Path=Image}" VerticalAlignment="Top"/>
+                                            </ToolTip>
                                         </Setter.Value>
                                     </Setter>
                                 </Style>
